@@ -2,6 +2,7 @@
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Comparator;
 
 public class Shoe extends CardCollection{
 
@@ -22,7 +23,9 @@ public class Shoe extends CardCollection{
                     cardss.add(new BaccaratCard(rank, suit));
                 }
             }
+            
         }
+        sort(); // this sorts the code into all clubs then all diamonds, all hearts, all spades and can be later shuffled
     }
 
     public void shuffle(){
@@ -33,16 +36,18 @@ public class Shoe extends CardCollection{
         if (size() == 0){
             throw new CardException("Can't deal from an empty deck");
         } 
-        if (size() > 52){
-            return cardss.remove(52-13); // as cards are ordered in order of unicode character
-        } else {
+
             return cardss.remove(0);
-        }
+
     }
 
-      public int size(){
+    public int size(){
         return cardss.size();
     }
 
+    @Override
+    public void sort(){
+        cardss.sort(Comparator.comparing(card -> card.getSuit().toString()));
+    }
 
 }
