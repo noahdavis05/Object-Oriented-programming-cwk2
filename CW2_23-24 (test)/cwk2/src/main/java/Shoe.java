@@ -25,7 +25,7 @@ public class Shoe extends CardCollection{
             }
             
         }
-        sort(); // this sorts the code into all clubs then all diamonds, all hearts, all spades and can be later shuffled
+        
     }
 
     public void shuffle(){

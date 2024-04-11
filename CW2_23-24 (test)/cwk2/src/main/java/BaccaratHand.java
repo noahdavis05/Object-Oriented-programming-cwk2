@@ -1,4 +1,3 @@
-// TODO: Implement the BaccaratHand class in the file
 public class BaccaratHand{
 
     private BaccaratCard card1; 
@@ -31,12 +30,17 @@ public class BaccaratHand{
         int total = 0;
         if (this.card1 != null){
             total += this.card1.value();
+
+ 
         }
         if (this.card2 != null){
             total += this.card2.value();
+  
         }
         if (this.card3 != null){
-            total += this.card1.value();
+            total += this.card3.value();
+
+
         }
         // now we have the sum must get the correct hand value
         return total % 10;
@@ -63,5 +67,12 @@ public class BaccaratHand{
             result = result.substring(0, result.length() - 1);
         }
         return result;
+    }
+
+    public void resetHand(){
+        this.card1 = null;
+        this.card2 = null;
+        this.card3 = null;
+        this.pointer = 0;
     }
 }
