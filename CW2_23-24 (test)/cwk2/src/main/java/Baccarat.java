@@ -47,16 +47,25 @@ public class Baccarat {
       // play a round of the game
       game.round();
       // ask user if they wish to continue
-      System.out.print("Do you wish to continue Y/N: ");
+      System.out.print("Another round? (y/n): ");
       char ch = scanner.next().charAt(0);
       if (ch != 'Y' && ch != 'y') 
       {
         cont = false;
       } else 
       {
-        // reset the hands at end of the round
-        game.resetHands();
-        System.out.println(" ");
+        // check if there are enough cards left in the shoe
+        if (game.myShoe.size() < 6)
+        {
+          System.out.println("Too few cards in shoe, game over!");
+          cont = false;
+        }
+        else 
+        {
+          // reset the hands at end of the round
+          game.resetHands();
+          System.out.println(" ");
+        }
       }
     }
 
