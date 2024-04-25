@@ -38,7 +38,7 @@ public class Baccarat {
         mode = 1;
       }
       
-      }
+    }
       
     
     // make an instance of this class to use.
