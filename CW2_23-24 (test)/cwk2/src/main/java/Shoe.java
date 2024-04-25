@@ -18,20 +18,18 @@ public class Shoe extends CardCollection {
      * @param decks integer to decide how many decks you want in the shoe.
      */
     public Shoe(int decks) {
-        super(); // Call the constructor of the superclass (CardCollection)
+        super();
 
-        // Validate the number of decks
         if (decks != 6 && decks != 8) {
             throw new CardException("Invalid number of decks");
         }
 
         this.decks = decks;
 
-        // Fill the shoe with cards from the specified number of decks
         for (int j = 0; j < this.decks; j++) {
             for (Card.Suit suit : Card.Suit.values()) {
                 for (Card.Rank rank : Card.Rank.values()) {
-                    add(new BaccaratCard(rank, suit)); // Add cards to the shoe using the inherited add method
+                    add(new BaccaratCard(rank, suit)); 
                 }
             }
         }

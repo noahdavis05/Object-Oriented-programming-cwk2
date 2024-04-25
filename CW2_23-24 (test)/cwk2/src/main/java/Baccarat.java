@@ -31,6 +31,16 @@ public class Baccarat {
   }
 
   public static void main(String[] args) {
+    int mode = 0; // this mode is non interactive mode
+    // check if there are args
+    if (args.length == 1){
+      if (args[0].equals("-i") || args[0].equals("--interact")){
+        mode = 1;
+      }
+      
+      }
+      
+    
     // make an instance of this class to use.
     Baccarat game = new Baccarat();
 
@@ -45,13 +55,24 @@ public class Baccarat {
     while (cont) {
       // play a round of the game
       game.round();
-      // ask user if they wish to continue
-      System.out.print("Another round? (y/n): ");
-      char ch = scanner.next().charAt(0);
-      if (ch != 'Y' && ch != 'y') {
-        cont = false;
+      // ask user if they wish to continue if in interactive mode
+      if (mode == 1){
+        System.out.print("Another round? (y/n): ");
+        char ch = scanner.next().charAt(0);
+        if (ch != 'Y' && ch != 'y') {
+          cont = false;
+        } else {
+          // check if there are enough cards left in the shoe
+          if (game.myShoe.size() < 6) {
+            System.out.println("Too few cards in shoe, game over!");
+            cont = false;
+          } else {
+            // reset the hands at end of the round
+            game.resetHands();
+            System.out.println(" ");
+          }
+        }
       } else {
-        // check if there are enough cards left in the shoe
         if (game.myShoe.size() < 6) {
           System.out.println("Too few cards in shoe, game over!");
           cont = false;
@@ -61,6 +82,7 @@ public class Baccarat {
           System.out.println(" ");
         }
       }
+      
     }
 
     // display the finishing results

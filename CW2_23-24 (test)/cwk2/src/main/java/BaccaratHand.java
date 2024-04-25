@@ -2,10 +2,13 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * A class extending CardCollection altered for baccarat.
+ */
 public class BaccaratHand extends CardCollection {
 
     public BaccaratHand() {
-        super(); // Call the constructor of the superclass (CardCollection)
+        super(); 
     }
 
     /**
@@ -15,7 +18,7 @@ public class BaccaratHand extends CardCollection {
      */
     public void add(BaccaratCard card) {
         if (card instanceof BaccaratCard && size() < 3) {
-            super.add(card); // Call the add method of the superclass (CardCollection)
+            super.add(card);
         }
 
     }
